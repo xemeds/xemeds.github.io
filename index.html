@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flashcards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Flashcards</h1>
+
+<div id="message" class="message"></div>
+
+<div id="setup">
+  <label>Start index:</label>
+  <input type="number" id="start" value="1">
+
+  <label>End index:</label>
+  <input type="number" id="end" value="12">
+
+  <button onclick="startSession()">Start</button>
+</div>
+
+<div id="app" class="hidden">
+
+  <div id="stats">
+    <span>Known: <span id="known">0</span></span>
+    <span>Unknown: <span id="unknown">0</span></span>
+    <span>Unseen: <span id="unseen">0</span></span>
+  </div>
+
+  <div id="card" onclick="flipCard()">
+    <div id="front"></div>
+    <div id="back" class="hidden"></div>
+  </div>
+
+  <div id="buttons">
+    <button onclick="markKnown()">I Know</button>
+    <button onclick="markUnknown()">I Don't Know</button>
+  </div>
+
+  <button onclick="reset()">Back</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
