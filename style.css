@@ -1,21 +1,42 @@
+/* Theme Switcher */
+#themeSwitcher {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#themeSelect {
+  background: var(--button);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* Base */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-align: center;
   padding: 20px;
-  background-color: #0f1115;
-  color: #e6e6e6;
+
+  background-color: var(--bg);
+  color: var(--text);
+
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Hide elements */
+/* Hide */
 .hidden {
   display: none;
 }
 
-/* Top message */
+/* Message */
 .message {
   margin-bottom: 20px;
   font-weight: 500;
-  color: #4ade80; /* soft green */
+  color: var(--message);
 }
 
 /* Card */
@@ -24,8 +45,8 @@ body {
   width: 320px;
   height: 180px;
   border-radius: 16px;
-  background: #1a1d24;
-  border: 1px solid #2a2f3a;
+  background: var(--card);
+  border: 1px solid var(--border);
 
   display: flex;
   flex-direction: column;
@@ -45,16 +66,16 @@ body {
 
 #back {
   font-size: 16px;
-  color: #a1a1aa;
+  color: var(--subtext);
   margin-top: 10px;
   white-space: pre-line;
 }
 
 /* Buttons */
 button {
-  background: #1f2937;
-  color: #e5e7eb;
-  border: 1px solid #374151;
+  background: var(--button);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 18px;
   margin: 8px;
@@ -65,7 +86,7 @@ button {
 }
 
 button:hover {
-  background: #2a3442;
+  background: var(--button-hover);
 }
 
 button:active {
@@ -78,17 +99,57 @@ button:active {
   display: flex;
   justify-content: space-around;
   font-size: 14px;
-  color: #9ca3af;
+  color: var(--subtext);
 }
 
 /* Inputs */
 input {
-  background: #1a1d24;
-  border: 1px solid #2a2f3a;
-  color: #e6e6e6;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
   border-radius: 8px;
   padding: 6px 10px;
   margin: 5px;
   width: 70px;
   text-align: center;
+}
+
+/* ===== THEMES ===== */
+
+/* DARK (default) */
+:root {
+  --bg: #0f1115;
+  --text: #e6e6e6;
+  --card: #1a1d24;
+  --border: #2a2f3a;
+  --button: #1f2937;
+  --button-hover: #2a3442;
+  --subtext: #9ca3af;
+  --message: #ffffff;
+}
+
+/* LIGHT */
+body.light {
+  --bg: #f5f5f5;
+  --text: #111827;
+  --card: #ffffff;
+  --border: #d1d5db;
+  --button: #e5e7eb;
+  --button-hover: #d1d5db;
+  --subtext: #4b5563;
+  --message: #000000;
+}
+
+/* MEHIN 🌸 */
+body.mehin {
+  --bg: #ffe4ec;
+  --text: #4a044e;
+  --card: #fff0f6;
+  --border: #f9a8d4;
+  --button: #f472b6;
+  --button-hover: #ec4899;
+  --subtext: #9d174d;
+  --message: #000000;
+
+  background-image: url("https://www.transparenttextures.com/patterns/sakura.png");
 }

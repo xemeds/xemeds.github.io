@@ -1,3 +1,4 @@
+// ===== YOUR EXISTING CODE (UNCHANGED) =====
 const rawWords = `经历,jīnglì,to experience; experience
 看法,kànfǎ,opinion; point of view
 肯定,kěndìng,certainly; definitely
@@ -420,7 +421,7 @@ let sessionWords = [];
 let unknownPool = [];
 
 let knownSet = new Set();
-let unknownSet = new Set(); // ✅ FIXED (unique unknown words)
+let unknownSet = new Set();
 let seenSet = new Set();
 
 let current = null;
@@ -478,16 +479,16 @@ function flipCard() {
 // Known
 function markKnown() {
   knownSet.add(current);
-  unknownSet.delete(current); // remove if previously unknown
+  unknownSet.delete(current);
 
   unknownPool = unknownPool.filter(w => w !== current);
   nextCard();
 }
 
-// Unknown (FIXED)
+// Unknown
 function markUnknown() {
   if (!knownSet.has(current)) {
-    unknownSet.add(current); // only unique
+    unknownSet.add(current);
   }
   nextCard();
 }
@@ -506,7 +507,7 @@ function finishSession() {
   document.getElementById("app").classList.add("hidden");
 
   document.getElementById("message").innerText =
-    "🎉 All selected words mastered!";
+    "You finished the selected words!";
 }
 
 // Reset
@@ -514,3 +515,26 @@ function reset() {
   document.getElementById("setup").classList.remove("hidden");
   document.getElementById("app").classList.add("hidden");
 }
+
+// ===== THEME SYSTEM =====
+
+function changeTheme() {
+  const theme = document.getElementById("themeSelect").value;
+
+  document.body.classList.remove("light", "mehin");
+  if (theme !== "dark") {
+    document.body.classList.add(theme);
+  }
+
+  localStorage.setItem("theme", theme);
+}
+
+window.onload = () => {
+  const saved = localStorage.getItem("theme") || "dark";
+
+  document.getElementById("themeSelect").value = saved;
+
+  if (saved !== "dark") {
+    document.body.classList.add(saved);
+  }
+};
