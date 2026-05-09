@@ -2,7 +2,7 @@
 #themeSwitcher {
   position: fixed;
   top: 15px;
-  right: 20px;
+  right: 15px;
   z-index: 1000;
 }
 
@@ -11,20 +11,26 @@
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 6px 10px;
+  padding: 8px 10px;
   cursor: pointer;
 }
 
 /* Base */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  text-align: center;
+  margin: 0;
   padding: 20px;
+  text-align: center;
 
   background-color: var(--bg);
   color: var(--text);
 
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* Hide */
@@ -39,11 +45,46 @@ body {
   color: var(--message);
 }
 
+/* Fields */
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.field-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Inputs + Select */
+input,
+select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 250px;
+  box-sizing: border-box;
+}
+
 /* Card */
 #card {
-  margin: 40px auto;
-  width: 320px;
-  height: 180px;
+  margin: 30px auto;
+  width: min(90vw, 360px);
+  min-height: 200px;
+  padding: 20px;
+  box-sizing: border-box;
+
   border-radius: 16px;
   background: var(--card);
   border: 1px solid var(--border);
@@ -53,7 +94,6 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 28px;
   cursor: pointer;
 
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -61,14 +101,20 @@ body {
 
 #card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+#front {
+  font-size: clamp(28px, 8vw, 40px);
+  font-weight: 600;
 }
 
 #back {
-  font-size: 16px;
+  font-size: clamp(15px, 4vw, 18px);
   color: var(--subtext);
-  margin-top: 10px;
+  margin-top: 14px;
   white-space: pre-line;
+  line-height: 1.5;
 }
 
 /* Buttons */
@@ -77,10 +123,13 @@ button {
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 10px 18px;
+
+  padding: 12px 20px;
   margin: 8px;
+
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
+  min-height: 48px;
 
   transition: background 0.15s ease, transform 0.1s ease;
 }
@@ -93,30 +142,27 @@ button:active {
   transform: scale(0.97);
 }
 
+/* Button group */
+#buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* Stats */
 #stats {
   margin-top: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
   font-size: 14px;
   color: var(--subtext);
 }
 
-/* Inputs */
-input {
-  background: var(--card);
-  border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 6px 10px;
-  margin: 5px;
-  width: 70px;
-  text-align: center;
-}
-
 /* ===== THEMES ===== */
 
-/* DARK (default) */
+/* DARK */
 :root {
   --bg: #0f1115;
   --text: #e6e6e6;
@@ -140,7 +186,7 @@ body.light {
   --message: #000000;
 }
 
-/* MEHIN 🌸 */
+/* MEHIN */
 body.mehin {
   --bg: #ffe4ec;
   --text: #4a044e;
@@ -152,4 +198,40 @@ body.mehin {
   --message: #000000;
 
   background-image: url("https://www.transparenttextures.com/patterns/sakura.png");
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .field-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  #buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #themeSwitcher {
+    top: 10px;
+    right: 10px;
+  }
 }

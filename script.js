@@ -1,5 +1,8 @@
-// ===== YOUR EXISTING CODE (UNCHANGED) =====
-const rawWords = `经历,jīnglì,to experience; experience
+// =========================
+// WORD LIST 1
+// =========================
+const rawWordsShorter = `
+经历,jīnglì,to experience; experience
 看法,kànfǎ,opinion; point of view
 肯定,kěndìng,certainly; definitely
 困难,kùnnan,difficult; difficulty
@@ -408,13 +411,142 @@ const rawWords = `经历,jīnglì,to experience; experience
 压力,yālì,pressure
 支持,zhīchí,support
 知识,zhīshi,knowledge
-重视,zhòngshì,value`;
+重视,zhòngshì,value
+`.trim();
 
-// Parse
-const words = rawWords.split("\n").map(line => {
-  const [hanzi, pinyin, meaning] = line.split(",");
-  return { hanzi, pinyin, meaning };
-});
+// =========================
+// WORD LIST 2
+// =========================
+const rawWordsAdditional = `
+兴趣,xìngqù,interest
+影响,yǐngxiǎng,to influence; influence
+保修,bǎoxiū,warranty; to repair under warranty
+记得,jìde,to remember
+记住,jìzhù,to remember; to keep in mind
+弹钢琴,tán gāngqín,to play the piano
+表演,biǎoyǎn,to perform; performance
+吃惊,chījīng,to be surprised
+礼拜,lǐbài,week
+出差,chūchāi,to go on a business trip
+月底,yuèdǐ,end of the month
+估计,gūjì,to estimate; probably
+理发,lǐfà,to cut hair; haircut
+打招呼,dǎ zhāohu,to greet; say hello
+认出来,rèn chūlái,to recognize
+印象,yìnxiàng,impression
+礼貌,lǐmào,polite; manners
+幽默,yōumò,humorous; humor
+暖和,nuǎnhuo,warm
+厚,hòu,thick
+体检,tǐjiǎn,physical examination
+艺术,yìshù,art
+谈,tán,to talk; discuss
+叶子,yèzi,leaf
+掉光,diào guāng,to fall out completely
+脏,zāng,dirty
+凉快,liángkuai,cool; pleasant
+苦,kǔ,bitter
+垃圾,lājī,garbage
+打扮,dǎban,to dress up
+引起,yǐnqǐ,to cause; arouse
+躺,tǎng,to lie down
+新闻,xīnwén,news
+误会,wùhuì,misunderstand; misunderstanding
+清楚,qīngchu,clear; clearly
+抬,tái,to lift
+乱,luàn,messy; chaotic
+逛,guàng,to stroll; shop around
+挺,tǐng,quite; very
+响,xiǎng,to make a sound; ring
+广播,guǎngbō,broadcast
+身边,shēnbiān,by one's side
+总是,zǒngshì,always
+合格,hégé,qualified
+寒假,hánjià,winter vacation
+减肥,jiǎnféi,to lose weight
+表扬,biǎoyáng,to praise
+性格,xìnggé,personality
+厉害,lìhai,awesome; severe
+勇敢,yǒnggǎn,brave
+孤单,gūdān,lonely
+陪着,péizhe,to accompany
+信任,xìnrèn,to trust
+照顾,zhàogù,to take care of
+成熟,chéngshú,mature
+冷静,lěngjìng,calm
+批评,pīpíng,to criticize
+刷牙,shuāyá,to brush teeth
+一般,yìbān,ordinary; generally
+根据,gēnjù,according to; based on
+相信,xiāngxìn,to believe
+使用,shǐyòng,to use
+健康,jiànkāng,healthy; health
+脸,liǎn,face
+声音,shēngyīn,sound; voice
+担心,dānxīn,to worry
+逐渐,zhújiàn,gradually
+律师,lǜshī,lawyer
+主动,zhǔdòng,proactive; take initiative
+增长速度,zēngzhǎng sùdù,growth rate
+亚洲,Yàzhōu,Asia
+专为,zhuānwèi,specially for
+决定,juédìng,to decide; decision
+尝,cháng,to taste; try
+竞争,jìngzhēng,to compete; competition
+害怕,hàipà,to be afraid
+货,huò,goods
+阳光,yángguāng,sunlight
+熟悉,shúxī,to be familiar with
+成绩,chéngjì,grade; achievement
+皮肤,pífū,skin
+湿润,shīrùn,moist
+填,tián,to fill in
+选择,xuǎnzé,to choose; choice
+扩大,kuòdà,to expand
+植物,zhíwù,plant
+塑料,sùliào,plastic
+环境,huánjìng,environment
+扔垃圾,rēng lājī,to throw away trash
+专门,zhuānmén,specialized; specially
+软,ruǎn,soft
+敲门,qiāo mén,to knock on the door
+马虎,mǎhu,to be careless
+打扰,dǎrǎo,to disturb
+关心,guānxīn,to care about
+交流,jiāoliú,to communicate; exchange
+赚,zhuàn,to earn
+吵醒,chǎoxǐng,to wake someone up by noise
+超出,chāochū,to exceed
+范围,fànwéi,range; scope
+杂志,zázhì,magazine
+挂,guà,to hang
+墙,qiáng,wall
+画,huà,painting; picture
+闻,wén,to smell; hear
+`.trim();
+
+// Parse helper
+function parseWords(raw) {
+  return raw
+    .split("\n")
+    .filter(line => line.trim() !== "")
+    .map(line => {
+      const [hanzi, pinyin, meaning] = line.split(",");
+      return { hanzi, pinyin, meaning };
+    });
+}
+
+// Word sets
+const wordSets = {
+  shorter: {
+    name: "Shorter HSK 4 Word List",
+    words: parseWords(rawWordsShorter)
+  },
+  additional: {
+    name: "Additional HSK 4 Word List",
+    words: parseWords(rawWordsAdditional)
+  }
+};
 
 // State
 let sessionWords = [];
@@ -427,12 +559,31 @@ let seenSet = new Set();
 let current = null;
 let showingBack = false;
 
-// Start
+// Populate selector
+function populateWordSetSelector() {
+  const select = document.getElementById("wordSet");
+  select.innerHTML = "";
+
+  Object.keys(wordSets).forEach(key => {
+    const option = document.createElement("option");
+    option.value = key;
+
+    const count = wordSets[key].words.length;
+    option.textContent = `${wordSets[key].name} (${count})`;
+
+    select.appendChild(option);
+  });
+}
+
+// Start session
 function startSession() {
+  const selectedSet = document.getElementById("wordSet").value;
+  const selectedWords = wordSets[selectedSet].words;
+
   const start = parseInt(document.getElementById("start").value) - 1;
   const end = parseInt(document.getElementById("end").value);
 
-  sessionWords = words.slice(start, end);
+  sessionWords = selectedWords.slice(start, end);
   unknownPool = [...sessionWords];
 
   knownSet.clear();
@@ -461,6 +612,7 @@ function nextCard() {
   seenSet.add(current);
 
   document.getElementById("front").innerText = current.hanzi;
+
   document.getElementById("back").innerText =
     `${current.pinyin}\n${current.meaning}`;
 
@@ -469,31 +621,34 @@ function nextCard() {
   updateStats();
 }
 
-// Flip
+// Flip card
 function flipCard() {
   if (!current) return;
+
   showingBack = !showingBack;
   document.getElementById("back").classList.toggle("hidden");
 }
 
-// Known
+// Mark known
 function markKnown() {
   knownSet.add(current);
   unknownSet.delete(current);
 
   unknownPool = unknownPool.filter(w => w !== current);
+
   nextCard();
 }
 
-// Unknown
+// Mark unknown
 function markUnknown() {
   if (!knownSet.has(current)) {
     unknownSet.add(current);
   }
+
   nextCard();
 }
 
-// Stats
+// Update stats
 function updateStats() {
   document.getElementById("known").innerText = knownSet.size;
   document.getElementById("unknown").innerText = unknownSet.size;
@@ -516,12 +671,12 @@ function reset() {
   document.getElementById("app").classList.add("hidden");
 }
 
-// ===== THEME SYSTEM =====
-
+// Theme system
 function changeTheme() {
   const theme = document.getElementById("themeSelect").value;
 
   document.body.classList.remove("light", "mehin");
+
   if (theme !== "dark") {
     document.body.classList.add(theme);
   }
@@ -529,7 +684,10 @@ function changeTheme() {
   localStorage.setItem("theme", theme);
 }
 
+// Init
 window.onload = () => {
+  populateWordSetSelector();
+
   const saved = localStorage.getItem("theme") || "dark";
 
   document.getElementById("themeSelect").value = saved;
