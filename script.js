@@ -518,6 +518,28 @@ const rawWordsAdditional = `
 墙,qiáng,wall
 画,huà,painting; picture
 闻,wén,to smell; hear
+海洋,hǎiyáng,ocean; sea
+老虎,lǎohǔ,tiger
+阳光,yángguāng,sunlight
+镜子,jìngzi,mirror
+掌声,zhǎngshēng,applause
+鼓掌,gǔzhǎng,to applaud; clap hands
+励,lì,to encourage; urge
+鼓励,gǔlì,to encourage; encouragement
+基础,jīchǔ,foundation; basics
+报道,bàodào,to report; report
+代表,dàibiǎo,to represent; representative
+认输,rènshū,to admit defeat
+主动,zhǔdòng,proactive; take initiative
+丢掉,diūdiào,to throw away; discard
+关心,guānxīn,to care about
+竞争力,jìngzhēnglì,competitiveness
+向前,xiàng qián,forward; onward
+当地,dāngdì,local; the local area
+民族,mínzú,ethnic group; nationality
+教育,jiàoyù,education; to educate
+限制,xiànzhì,to limit; restriction
+访问,fǎngwèn,to visit; interview
 `.trim();
 
 // Parse helper
