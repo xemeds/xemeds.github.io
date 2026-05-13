@@ -422,7 +422,7 @@ const rawWordsAdditional = `
 影响,yǐngxiǎng,to influence; influence
 保修,bǎoxiū,warranty; to repair under warranty
 记得,jìde,to remember
-记住,jìzhù,to remember; keep in mind
+记住,jìzhù,to remember; to keep in mind
 弹钢琴,tán gāngqín,to play the piano
 表演,biǎoyǎn,to perform; performance
 吃惊,chījīng,to be surprised
@@ -431,16 +431,18 @@ const rawWordsAdditional = `
 月底,yuèdǐ,end of the month
 估计,gūjì,to estimate; probably
 理发,lǐfà,to cut hair; haircut
-打招呼,dǎ zhāohu,to greet
+打招呼,dǎ zhāohu,to greet; say hello
 认出来,rèn chūlái,to recognize
 印象,yìnxiàng,impression
 礼貌,lǐmào,polite; manners
-幽默,yōumò,humorous
+幽默,yōumò,humorous; humor
 暖和,nuǎnhuo,warm
+厚,hòu,thick
 体检,tǐjiǎn,physical examination
 艺术,yìshù,art
 谈,tán,to talk; discuss
 叶子,yèzi,leaf
+掉光,diào guāng,to fall out completely
 脏,zāng,dirty
 凉快,liángkuai,cool; pleasant
 苦,kǔ,bitter
@@ -449,13 +451,13 @@ const rawWordsAdditional = `
 引起,yǐnqǐ,to cause; arouse
 躺,tǎng,to lie down
 新闻,xīnwén,news
-误会,wùhuì,misunderstand
-清楚,qīngchu,clear
+误会,wùhuì,misunderstand; misunderstanding
+清楚,qīngchu,clear; clearly
 抬,tái,to lift
 乱,luàn,messy; chaotic
 逛,guàng,to stroll; shop around
 挺,tǐng,quite; very
-响,xiǎng,to ring; make a sound
+响,xiǎng,to make a sound; ring
 广播,guǎngbō,broadcast
 身边,shēnbiān,by one's side
 总是,zǒngshì,always
@@ -474,8 +476,11 @@ const rawWordsAdditional = `
 冷静,lěngjìng,calm
 批评,pīpíng,to criticize
 刷牙,shuāyá,to brush teeth
+一般,yìbān,ordinary; generally
 根据,gēnjù,according to; based on
-健康,jiànkāng,health; healthy
+相信,xiāngxìn,to believe
+使用,shǐyòng,to use
+健康,jiànkāng,healthy; health
 脸,liǎn,face
 声音,shēngyīn,sound; voice
 担心,dānxīn,to worry
@@ -496,7 +501,7 @@ const rawWordsAdditional = `
 皮肤,pífū,skin
 湿润,shīrùn,moist
 填,tián,to fill in
-选择,xuǎnzé,to choose
+选择,xuǎnzé,to choose; choice
 扩大,kuòdà,to expand
 植物,zhíwù,plant
 塑料,sùliào,plastic
@@ -504,13 +509,13 @@ const rawWordsAdditional = `
 扔垃圾,rēng lājī,to throw away trash
 专门,zhuānmén,specialized; specially
 软,ruǎn,soft
-敲门,qiāo mén,to knock
-马虎,mǎhu,careless
+敲门,qiāo mén,to knock on the door
+马虎,mǎhu,to be careless
 打扰,dǎrǎo,to disturb
 关心,guānxīn,to care about
-交流,jiāoliú,to communicate
+交流,jiāoliú,to communicate; exchange
 赚,zhuàn,to earn
-吵醒,chǎoxǐng,to wake by noise
+吵醒,chǎoxǐng,to wake someone up by noise
 超出,chāochū,to exceed
 范围,fànwéi,range; scope
 杂志,zázhì,magazine
