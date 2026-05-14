@@ -545,6 +545,39 @@ const rawWordsAdditional = `
 教育,jiàoyù,education; to educate
 限制,xiànzhì,to limit; restriction
 访问,fǎngwèn,to visit; interview
+司机,sījī,driver
+变瘦,biàn shòu,to become thin; lose weight
+生意,shēngyì,business
+谈成,tánchéng,to successfully close a deal
+信封,xìnfēng,envelope
+骗,piàn,to cheat; deceive; scam
+疼,téng,pain; to hurt
+发烧,fāshāo,to have a fever
+辛苦,xīnkǔ,hard; exhausting; thanks for your effort
+阴,yīn,cloudy; overcast
+刮风,guā fēng,to be windy; wind blows
+降温,jiàngwēn,temperature drop; cool down
+邻居,línjū,neighbor
+房东,fángdōng,landlord
+存包,cún bāo,luggage storage; store bags
+导游,dǎoyóu,tour guide
+擦,cā,to wipe; rub
+橡皮,xiàngpí,eraser
+掉铅笔,diào qiān bǐ,to drop a pencil
+郊区,jiāoqū,suburb; outskirts
+意思,yìsi,meaning; idea
+文中,wén zhōng,in the text
+了解,liǎojiě,to understand; understand
+不像,bù xiàng,doesn't look like; not like
+手忙脚乱,shǒu máng jiǎo luàn,flustered; in a panic
+降落,jiàngluò,to land
+除了,chúle,besides; except for
+牙膏,yágāo,toothpaste
+之都,zhī dū,capital of; capital city
+精彩,jīngcǎi,wonderful; brilliant; exciting
+功夫,gōngfu,kung fu
+指,zhǐ,to point; refer to
+养成,yǎngchéng,to form a habit; develop
 `.trim();
 
 // Parse helper
