@@ -578,6 +578,39 @@ const rawWordsAdditional = `
 功夫,gōngfu,kung fu
 指,zhǐ,to point; refer to
 养成,yǎngchéng,to form a habit; develop
+表示,biǎoshì,to express; to indicate
+博士,bóshì,PhD; doctor
+传真,chuánzhēn,fax
+窗户,chuānghù,window
+戴,dài,to wear (accessories, glasses, hat)
+刀,dāo,knife
+登机牌,dēngjīpái,boarding pass
+暑假,shǔjià,summer vacation
+付款,fùkuǎn,to pay; payment
+敢,gǎn,to dare
+胳膊,gēbó,arm
+假,jiǎ,false; fake; holiday
+奖金,jiǎngjīn,bonus; prize money
+景色,jǐngsè,scenery
+聚会,jùhuì,party; gathering
+毛巾,máojīn,towel
+弄,nòng,to do; to play with; to make
+破,pò,broken; worn-out
+现象,xiànxiàng,phenomenon
+穷,qióng,poor
+森林,sēnlín,forest
+宝贵,bǎoguì,valuable; precious
+生命,shēngmìng,life
+师傅,shīfu,master; skilled worker; driver
+失望,shīwàng,disappointed
+硕士,shuòshì,master’s degree
+脱,tuō,to take off (clothes, shoes)
+袜子,wàzi,socks
+性别,xìngbié,gender
+幸福,xìngfú,happiness; blessed
+语言,yǔyán,language
+招聘,zhāopìn,to recruit; recruitment
+祝贺,zhùhè,to congratulate
 `.trim();
 
 // Parse helper
@@ -603,6 +636,15 @@ const wordSets = {
   }
 };
 
+// =========================
+// NEW: Total set
+// =========================
+const totalWords = [...wordSets.shorter.words, ...wordSets.additional.words];
+wordSets.total = {
+  name: "Total", // Removed duplicate count here
+  words: totalWords
+};
+
 // State
 let sessionWords = [];
 let unknownPool = [];
@@ -624,7 +666,7 @@ function populateWordSetSelector() {
     option.value = key;
 
     const count = wordSets[key].words.length;
-    option.textContent = `${wordSets[key].name} (${count})`;
+    option.textContent = `${wordSets[key].name} (${count})`; // count is added here consistently
 
     select.appendChild(option);
   });
